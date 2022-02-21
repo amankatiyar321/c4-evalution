@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    
+</head>
+<link rel="stylesheet" href="./styles/main.css">
+<body>
+    <div id="container">
+        <div id="sidebar"></div>
+        <div id="main"></div>
+    </div>
+ 
+
+</body>
+</html>
+<script type="module">
+
+import sidebar from "./components/sidebar.js";
+
+import {apiCall,appendData} from "./scripts/main.js";
+let res = await apiCall(' https://shrouded-earth-23381.herokuapp.com/api/headlines/india');
+console.log("res:",res);
+
+let side_bar = document.getElementById('sidebar');
+
+let parent = document.getElementById("main");
+
+appendData(res,parent);
+
+side_bar.innerHTML=sidebar();
+
+let  input = document.getElementById("searchBar")
+
+input.addEventListener('keypress',(e)=>{
+  if(e.key==='Enter'){
+   let input_value=document.getElementById("searchBar").value
+
+
+   localStorage.setItem('search_term',input_value);
+
+   window.location.href="search.html";
+  }
+});
+
+</script>

@@ -1,0 +1,25 @@
+
+#container{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+}
+#main{
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap:10px;
+    
+}
+#main>div{
+    height:300px;
+    width: 500px;
+    margin-left: 10px;
+}
+#main>div>img{
+    height:250px;
+    width:400px;
+}
+#sidebar{
+    font-size:30px;
+    color:blue;
+    
+}
